@@ -1,0 +1,320 @@
+
+ <!DOCTYPE HTML>
+<html lang="chinese">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>css大会总结 | 这是一个有趣的地方</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="wangdi">
+    
+    <meta name="description" content="今天起了一个大早去参加了CSS大会。第一次参加，来了很多前端大人物。感受到了前端无穷的魅力。以后我也会一直朝这个方向发展的。今天分享了8个主题(如果我没有记错的话。每一个主题都是相当的精彩的)。下面分享一下大会具体内容和我自己的感想。在参加这次大会我给我自己的定位是一个初级前端的工程师。很多东西我都">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="这是一个有趣的地方" title="这是一个有趣的地方"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="这是一个有趣的地方">这是一个有趣的地方</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">历史文章</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/18/css大会总结/" title="css大会总结" itemprop="url">css大会总结</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://plus.google.com/123?rel=author" title="wangdi" target="_blank" itemprop="author">wangdi</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-12-18T05:15:01.000Z" itemprop="datePublished">2016-12-18</time>
+    Updated:<time datetime="2016-12-18T05:41:25.052Z" itemprop="dateModified">2016-12-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#八个主题："><span class="toc-number">1.</span> <span class="toc-text">八个主题：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS的奇淫技巧"><span class="toc-number">2.</span> <span class="toc-text">CSS的奇淫技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Grid布局："><span class="toc-number">3.</span> <span class="toc-text">Grid布局：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#闪电分享"><span class="toc-number">4.</span> <span class="toc-text">闪电分享:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sass的使用和designer-patten-（喜欢）"><span class="toc-number">5.</span> <span class="toc-text">sass的使用和designer patten;（喜欢）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SVG的使用"><span class="toc-number">6.</span> <span class="toc-text">SVG的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息网页的交互"><span class="toc-number">7.</span> <span class="toc-text">信息网页的交互</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webGL和矩阵"><span class="toc-number">8.</span> <span class="toc-text">webGL和矩阵</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#css写demo"><span class="toc-number">9.</span> <span class="toc-text">css写demo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后："><span class="toc-number">10.</span> <span class="toc-text">最后：</span></a></li></ol>
+		</div>
+		
+		<p>今天起了一个大早去参加了CSS大会。第一次参加，来了很多前端大人物。感受到了前端无穷的魅力。以后我也会一直朝这个方向发展的。今天分享了8个主题(如果我没有记错的话。每一个主题都是相当的精彩的)。下面分享一下大会具体内容和我自己的感想。在参加这次大会我给我自己的定位是一个初级前端的工程师。很多东西我都<br>没有玩过。但是感受到前端无穷的知识，正是我所向往的地方。部分是我自己的总结，部分是我自己的感想。接下来一个礼拜会把CSS大会的内容玩玩，哈哈。</p>
+<h1 id="八个主题："><a href="#八个主题：" class="headerlink" title="八个主题："></a>八个主题：</h1><ul>
+<li>第一个是CSS奇淫技巧，一个外国的大pro叫mathias；</li>
+<li>第二个是grid的布局。是大漠老师分享的，明年三月加入新标准；</li>
+<li>第三个主题是勾三股四讲的一个weex一个前端的框架；</li>
+<li>第四个主题是台湾一个前端大牛六角学院的院长。分享的是一个sass的使用和designer patten;</li>
+<li>第五个主题是微信的SVG团队分享的SVG的使用</li>
+<li>第六个倪栩生分享的一个信息网页的交互</li>
+<li>第七个主题是webGL和矩阵的动画</li>
+<li>第八个主题女神张文婷带你现场使用css写一个icon</li>
+</ul>
+<h1 id="CSS的奇淫技巧"><a href="#CSS的奇淫技巧" class="headerlink" title="CSS的奇淫技巧"></a>CSS的奇淫技巧</h1><p>首先第一点，英语是硬伤啊。虽然演讲者mathhias已经使用很通俗的语言来分享他带来的CSS的各种细节。但是我感觉我听懂的很少。主要还是看到他ppt才能理解。说了很多细节，不过对于像我这样的初级前端工程师。很多的东西我还是应该遵循W3C的标准来写。他分享的东西很多都是他自己发现的一些CSS的小技巧。就好像我们都在准备高考。我还是高一的小菜鸟，什么应该按照standard。他已经玩转了五年三年和三十八套了！在他的分享当中，我比较感兴趣的是evil.css。可以把一个网页弄得要爆炸。还可能会照成一些安全隐患。通过首字母的搜索搜索到用户输入的一些敏感信息这也是需要引人注意的地方。</p>
+<p>分享一些链接：<br>you might not need javascript: <a href="http://youmightnotneedjs.com/" target="_blank" rel="external">http://youmightnotneedjs.com/</a><br>现场展示一个CSS做的demo: <a href="http://kong.詹姆斯.com/" target="_blank" rel="external">http://kong.詹姆斯.com/</a><br>一个工具网站：<a href="https://mothereff.in/" target="_blank" rel="external">https://mothereff.in/</a></p>
+<h1 id="Grid布局："><a href="#Grid布局：" class="headerlink" title="Grid布局："></a>Grid布局：</h1><p>怎么说呢，大漠老师做的grid布局的介绍。之前在w3cplus上就已经学习过了。但是没有具体玩玩。现场就了解到了grid在明年三月份正式成为了W3C的标准。我在整个分享当中就在想一个问题那flex怎么办。大漠老师最后对我的疑惑做了很好的解答:在嵌套使用当中。flex的布局优势是在一个方向上，可以外层用grid，内层用flex。</p>
+<h1 id="闪电分享"><a href="#闪电分享" class="headerlink" title="闪电分享:"></a>闪电分享:</h1><p>这个兄弟叫勾三股四，名字和发型比较有个性。感觉像一个风格的滑手。强行安利了一波他们自己写的weex的一个移动的前端框架。现场说明了一些已经支持的和正在优化支持的以及正在讨论支持的一些API。下个礼拜去玩玩吧，感觉还是挺有意思的。</p>
+<h1 id="sass的使用和designer-patten-（喜欢）"><a href="#sass的使用和designer-patten-（喜欢）" class="headerlink" title="sass的使用和designer patten;（喜欢）"></a>sass的使用和designer patten;（喜欢）</h1><p>台湾六角学院的院长。他讲的东西思路很清晰啊。一看就不是本地人。与其说他在说SASS。倒不如说他其实是在说一家公司的模式应该如何选择，设计的流程应该如何分化。虽然我经验还是不足，但是我学习到了他的金字塔形状的设计模式。<br>最主要就是tools的部分。把常用的工具分离出来。而sass就是这个中介把常用的工具引用进来。<br>每一个部分的具体内容等放出PPT再总结。特别喜欢的！</p>
+<h1 id="SVG的使用"><a href="#SVG的使用" class="headerlink" title="SVG的使用"></a>SVG的使用</h1><p>说实话我一直是用的是canvas，对SVG也只是在群里有听他们说过。但是今天看到了CSS大会上微信SVG团队使用SVG做出来非常6的动画，但是实际上代码非常的简单真是令人惊讶。在设计icon使用SVG真的是不二选择，优势主要在于：可以轻松控制颜色，动画比较容易生成，流量还消耗少。下个礼拜具体玩一下。<br>SVG的工具：snap.svg.js<br>icon转换工具：greensock 、morpheus</p>
+<h1 id="信息网页的交互"><a href="#信息网页的交互" class="headerlink" title="信息网页的交互"></a>信息网页的交互</h1><p>感觉不是很懂说这个意思。但是我知道了一个人叫神飞。前端观察博主：<a href="https://www.qianduan.net/" target="_blank" rel="external">https://www.qianduan.net/</a></p>
+<h1 id="webGL和矩阵"><a href="#webGL和矩阵" class="headerlink" title="webGL和矩阵"></a>webGL和矩阵</h1><p>这个就是在PC端回比较容易支持的一个东西，移动端萌新还是别碰了。当然复习了线性代数学过的知识，矩阵。现场就展示了好几个比较6的动画的demo。但是实现起来还是比较困难的，这个需要很大的努力去学习。</p>
+<h1 id="css写demo"><a href="#css写demo" class="headerlink" title="css写demo"></a>css写demo</h1><p>最后女神文婷，看到了老姐的身影。果然霸气外露的前端大神。现场用CSS写了一个icon，就使用了三个很基本的知识点：</p>
+<ol>
+<li>一个元素的box-shadow 可以不只有一个</li>
+<li>可以使用currentColor 指示上一个使用的颜色</li>
+<li>使用了伪元素</li>
+<li>矩阵四个顶点可以有不同的border-radius<br>然后女神带大家开始写icon。可能这个对于我们前端来说还是比较接地气的。老少皆宜的东西。所以大家都很喜欢。<br>这是女神icon网站大家可以看看 <a href="http://cssicon.space/#/" target="_blank" rel="external">http://cssicon.space/#/</a></li>
+</ol>
+<h1 id="最后："><a href="#最后：" class="headerlink" title="最后："></a>最后：</h1><ol>
+<li>英语还是要学好</li>
+<li>准备充分再去参加大会会有更多的收获</li>
+<li>意外搜到前端收集铺<a href="https://github.com/jikeytang/front-end-collect" target="_blank" rel="external">https://github.com/jikeytang/front-end-collect</a></li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/12/18/css大会总结/" data-title="css大会总结 | 这是一个有趣的地方" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/12/25/品张鑫旭大神视频总结-上/" title="品张鑫旭大神视频总结(上)">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  品张鑫旭大神视频总结(上)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/12/11/nodejs-mongodb开发总结/"  title="nodejs+mongodb开发总结">
+ <strong>NEXT:</strong><br/> 
+ <span>nodejs+mongodb开发总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#八个主题："><span class="toc-number">1.</span> <span class="toc-text">八个主题：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS的奇淫技巧"><span class="toc-number">2.</span> <span class="toc-text">CSS的奇淫技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Grid布局："><span class="toc-number">3.</span> <span class="toc-text">Grid布局：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#闪电分享"><span class="toc-number">4.</span> <span class="toc-text">闪电分享:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sass的使用和designer-patten-（喜欢）"><span class="toc-number">5.</span> <span class="toc-text">sass的使用和designer patten;（喜欢）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SVG的使用"><span class="toc-number">6.</span> <span class="toc-text">SVG的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息网页的交互"><span class="toc-number">7.</span> <span class="toc-text">信息网页的交互</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webGL和矩阵"><span class="toc-number">8.</span> <span class="toc-text">webGL和矩阵</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#css写demo"><span class="toc-number">9.</span> <span class="toc-text">css写demo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后："><span class="toc-number">10.</span> <span class="toc-text">最后：</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">5</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://yoursite.com" target="_blank" title="wangdi">wangdi</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

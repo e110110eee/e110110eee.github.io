@@ -1,0 +1,354 @@
+
+ <!DOCTYPE HTML>
+<html lang="chinese">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>品张鑫旭大神视频总结(下) | 这是一个有趣的地方</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="wangdi">
+    
+    <meta name="description" content="高能预警:line-height和vertical-align的激情之旅，还有那个overflow，都是重头戏。
+overflow一、  基本属性：visible（default） hidden  scroll  auto  inherit
+二、  overflow-x与overflow-y关于ov">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="这是一个有趣的地方" title="这是一个有趣的地方"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="这是一个有趣的地方">这是一个有趣的地方</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">历史文章</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/01/08/品张鑫旭大神视频总结-下/" title="品张鑫旭大神视频总结(下)" itemprop="url">品张鑫旭大神视频总结(下)</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://plus.google.com/123?rel=author" title="wangdi" target="_blank" itemprop="author">wangdi</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-01-08T14:45:00.000Z" itemprop="datePublished">2017-01-08</time>
+    Updated:<time datetime="2017-02-07T04:59:33.074Z" itemprop="dateModified">2017-02-07</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#overflow"><span class="toc-number">1.</span> <span class="toc-text">overflow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#line-height"><span class="toc-number">2.</span> <span class="toc-text">line-height</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vertical-align"><span class="toc-number">3.</span> <span class="toc-text">vertical-align</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+		</div>
+		
+		<p>高能预警:line-height和vertical-align的激情之旅，还有那个overflow，都是重头戏。</p>
+<h1 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h1><p>一、  基本属性：<br>visible（default） hidden  scroll  auto  inherit</p>
+<p>二、  overflow-x与overflow-y<br>关于overflow-x和overflow-y的一个标准：如果overflow两边的属性不一样时，一边的属性是visible,另一边是hidden、scroll、auto时。overflow为visible的一边会变成overflow:auto.</p>
+<p>三、  overflow 起作用的条件：<br>1）非display： inline<br>2）对应方位尺寸限制 有width height max-width max-height absolute拉伸(IE7不兼容)<br>3）单元格需要设置table 为table-layout:fixed</p>
+<p>四、整个页面滚动条来自哪里？<br>    实验证明来自html元素。而不是body元素，而且ie8+等浏览器默认html{overflow:auto}，ie7以下html{overflow:scroll}，而且滚动条宽度是17px;</p>
+<p>五、  js与滚动高度<br>谷歌浏览器document.body.scrollTop<br>其他浏览器document.documentElement.scrollTop;</p>
+<p>六、  overflow与BFC（重点）<br>BFC格式化上下文。BFC元素特性表现原则就是，内部子元素再怎么翻江倒海，翻云覆雨都不会影响外部的元素。这就可以解释margin穿透（我理解就是和margin父级元素重叠一个尿性的东西），overflow:hidden清除浮动的原理。<br>常见的触发BFC如下：<br>    float的值不为none。<br>    overflow的值为auto,scroll或hidden。<br>    display的值为table-cell, table-caption, inline-block中的任何一个。<br>    position的值不为relative和static。</p>
+<p>七、  overflow:hidden对绝对定位元素无效<br>原因：<br>CSS标准：绝对定位元素不总是被父级overflow属性剪裁，尤其是当overflow在绝对定位元素及其包含块之间的时候。<br>包含块：指的是有position:relative /absolute/fixed申明的父级元素。如果没有就是body<br>    解决办法：<br>1）  overflow：hidden属性的元素添加附加技能position:relative/absolute/fixed变成包含块<br>2）  包含块在overflow里面。同时也是图片的父级<br>3）  .transform申明当做包含块。（这个套路有点深，还在摸索当中）</p>
+<p>八、  关于overflow兼容的那些事情<br>a)ie7在button元素，在没有设置宽度的时候。button宽度会随着文字变多而变长。而ie8按照设置的宽度显示。现在使用overflow:visble可以解决<br>b)ie7下出现水平滚动条，可能是设置了100%的属性。ie7子元素设置width:100%；是以父元素的宽度的100%；当父元素出现水平滚动条时候，父元素宽度就是100%-17px,比子容器宽度小，所以会出现水平滚动条<br>c)overflow:auto   在非谷歌浏览器下padding-bottom || padding-right缺失的现象。</p>
+<hr>
+<h1 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h1><p>一、  定义<br>line-height:行高，两行基线的距离。<br>baseline基线是任意线定义的根本，基线简单来说就是小写x字母的下边缘。但是中文不是字的最下面。</p>
+<p>二、  line-height与行内框盒子模型</p>
+<ol>
+<li><p>内容区域（content area）一种围绕文字的看不见的盒子<br>内容区域大小和font-size大小有关，可以假想成：：selection可以用鼠标“拉黑的部分”。</p>
+</li>
+<li><p>内联盒子 inline box不会让内容成块显示。而是排成一排。如果外部包含inline标签。则属于内敛盒子。如果是个光秃秃的文字。则属于“匿名内联盒子”</p>
+</li>
+<li><p>行框盒子 Line boxes 每一行就是一个行框盒子 行框盒子是由内联盒子组成的</p>
+</li>
+<li><p>包含盒子 containing box 。一行一行的行框盒子组成  </p>
+</li>
+</ol>
+<p>三、  line-height高度的机理。内联元素的高度表现<br>内联元素高度是由line-height决定的！<br>内容区域高度（content area）+行间距（vertical spaing）= 行高<br>content area :只是和字体字号有关系。只有在宋体 !!!  还有谷歌浏览器下面条件下 content area 等于font-size；<br>行高决定内联盒子的高度；行间距可以大可以小，为了保证高度等于行高。</p>
+<p>行框盒子linebox 里面有多个不同高度的inlinebox内联盒子。基本以line-height最高inlinebox确定linebox的高度 ！</p>
+<p>四、  line-height支持的属性</p>
+<ol>
+<li>normal：默认属性值</li>
+<li>number : 当前元素font-size倍数</li>
+<li>length： 具体长度值</li>
+<li>percent：当前元素font-size倍数 可以继承，容易出问题</li>
+<li>inherit;</li>
+</ol>
+<p>tip:全局行高小技巧：<br>匹配行高为20px 方便计算；<br>body{<br>    font-size:14px;<br>    line-height:<strong>1.4286</strong><br>}<br>line-height:20px/14px = 1.4286；</p>
+<p>五、  行高与图片的表现(重点)<br>问题<br>行高会不会影响图片的实际占据高度<br>答：不会！！！！<br>但是图片插入的时候，最下面为何总是有一小部分的间距？</p>
+<p>答案：隐匿的文本节点起作用。<br>如果在图片后面加文字会看的清楚一点：（line-height只有90px;图片高度早已超过90px）<br>如下图：<br><img src="http://oj5rofqer.bkt.clouddn.com/0108-1.png" alt="0108"><br><img src="http://oj5rofqer.bkt.clouddn.com/0108-2.png" alt="0108"></p>
+<p>也就是基线位置的原因。<br>这里涉及到知识点：</p>
+<ol>
+<li>图片是inline水平的元素。vertical-align：baseline 默认是以基线对齐的。</li>
+<li>一个line-box 里面以baseLine对齐的。</li>
+</ol>
+<p>解决办法：<br>1）  图片block化，这样vertical-align就无效了；这个方法也可以解决其他的一些空白节点问题<br>2）  line-height:0/font-size:0; 基线位置上移<br>3）  img{vertical-align:top} 让图片的顶边缘和空白节点对齐，我最常用的方法。这样比较好布局。</p>
+<p>六、  实际应用：</p>
+<ol>
+<li><p>图片居中<br><img src="http://oj5rofqer.bkt.clouddn.com/0108-3.png" alt="0108"></p>
+</li>
+<li><p>多行文本居中显示<br><img src="http://oj5rofqer.bkt.clouddn.com/0108-4.png" alt="0108"></p>
+</li>
+</ol>
+<h1 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h1><p>一、  基本属性：<br>    线类：baseline top middle bottom<br>    文本类: text -top text-bottom<br>    上下标类：sub  super<br>    数值百分比：<br>    数值类 ：<br>    百分比类：</p>
+<p>数值和百分比共性：<br>都带数字<br>都是支持负数<br>行为表现一致 ：数值类就是在baseLine的基础上上下偏移对应数值的大小<br>差异：vertical-align的百分比属性值相对于行高计算的</p>
+<p>二、vertocal-align起作用的前提<br>    <strong>只能是display：inline/inline-block</strong></p>
+<p>注意CSS申明会改变显示水平：<br>例如：float 强制改变display</p>
+<p>三、vertical -align 和line-height<br>对于内联元素vertical-align与line-height到处都是：<br>换成人话就是：只要是内联水平的元素就会受到vertical-align 和line-heigth的影响<br>一个让我迷糊了很久的问题。当ul中li设置inline-block之后会出现对不齐的情况。和下图类似：<br><img src="http://oj5rofqer.bkt.clouddn.com/0108-5.png" alt="0108"><br>CSS2可视化格式模型文档：<br>inline-block的基线是正常流中最后一个line-box的基线，除非这个Linebox里面既没有line-boxes或者本身overflow属性计算值而不是visible这种情况基线是margin底边缘。<br>简单说就是：<strong>inline-block元素里面是空的 或者本身有overflow属性。 这时候baseline 就是底边缘margin。</strong></p>
+<p>四、  vertical-align线类属性值 top bottom middle</p>
+<ol>
+<li>vetical-align:bottom/top<br>i.  1.inline/inline-block ：元素底部和整行的底部对齐，相对于父级的整个内联盒子的底部对齐。<br>ii. 2.table-cell；单元格底padding边缘和表格行的底部对齐</li>
+<li>vertical-align:middle(重点)<br>定义：<br>inline/inline-block元素：元素垂直中心点和父元素基线上1/2 x-height处对齐<br>转成人话就是：元素的垂直中心点是和排在元素后面的文字的基线往上1/2 x高度对齐。<br>我要表达的是<strong>元素的中心和容器的中心</strong>是不在一条直线上的。如图中的<span style="color: yellow;font-weight: bold; ">黄线</span>和<span style="color: red;font-weight: bold;">红线</span>，所以这只是近似的垂直居中<br><img src="http://oj5rofqer.bkt.clouddn.com/0108-6.png" alt="0108"><br>所以图片只是和X字母的一半对齐：<br>解决办法：三线合一//高中数学的方法哈哈 设置font-size：0 使得三条线重合</li>
+</ol>
+<p>五、vertical-align：text-top/text-bottom</p>
+<p>申明元素的盒子顶部和父级的content-area顶部/底部对齐</p>
+<ol>
+<li>vertical-align垂直对齐的位置与前后元素都没有关系</li>
+<li>元素vertical-align：text-top/text-bottom垂直对齐的位置与行高line-height一点关系没有，只与字体大小font-size有关，<br>（因为元素的vertical-align：text-top/bottom只与父元素的content area 有关。而content area 只与font-size有关）</li>
+</ol>
+<p>六、总结<br>vertical-align：不同的inline vertical-align 不会相互影响。关注当前元素和父级，前后兄弟元素并没有直接的影响兼容性问题：把相邻元素直接display:block就可以了。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>首先，非常感谢张大神分享的css的这么多的技巧。虽然很多东西可能实用性不强。但是却让我更好的理解了CSS这些属性相互作用的关系。更好的使用组合技能完成击杀。<br>下篇主要说了三点：</p>
+<ol>
+<li>overflow：hidden 会触发BFC；</li>
+<li>vertical-align和line-height主要是用于行内元素</li>
+<li>最重要的一点：知道行内框盒子模型 ：content-area inline-box line-boxes containing box</li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2017/01/08/品张鑫旭大神视频总结-下/" data-title="品张鑫旭大神视频总结(下) | 这是一个有趣的地方" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/12/25/品张鑫旭大神视频总结-上/"  title="品张鑫旭大神视频总结(上)">
+ <strong>NEXT:</strong><br/> 
+ <span>品张鑫旭大神视频总结(上)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#overflow"><span class="toc-number">1.</span> <span class="toc-text">overflow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#line-height"><span class="toc-number">2.</span> <span class="toc-text">line-height</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vertical-align"><span class="toc-number">3.</span> <span class="toc-text">vertical-align</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">5</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://yoursite.com" target="_blank" title="wangdi">wangdi</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

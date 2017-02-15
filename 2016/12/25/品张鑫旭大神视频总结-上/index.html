@@ -1,0 +1,371 @@
+
+ <!DOCTYPE HTML>
+<html lang="chinese">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>品张鑫旭大神视频总结(上) | 这是一个有趣的地方</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="wangdi">
+    
+    <meta name="description" content="2016转眼已经接近尾声了。回想半年来走过的前端路。还是收获满满的。我自我感觉却还像宇宙中的一颗星星，好奇的品味这个世界。这几天仔细把玩了银河系里面的太阳—–张鑫旭大神的视频，感觉我学得东西也只是沧海一粟。还需要努力学习。总结分成两个部分，上半部分总结绝对定位absolute、margin用法、还有">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="这是一个有趣的地方" title="这是一个有趣的地方"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="这是一个有趣的地方">这是一个有趣的地方</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">历史文章</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/25/品张鑫旭大神视频总结-上/" title="品张鑫旭大神视频总结(上)" itemprop="url">品张鑫旭大神视频总结(上)</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://plus.google.com/123?rel=author" title="wangdi" target="_blank" itemprop="author">wangdi</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-12-25T14:44:41.000Z" itemprop="datePublished">2016-12-25</time>
+    Updated:<time datetime="2017-01-08T15:27:15.387Z" itemprop="dateModified">2017-01-08</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#absolute绝对定位"><span class="toc-number">1.</span> <span class="toc-text">absolute绝对定位</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#margin用法"><span class="toc-number">2.</span> <span class="toc-text">margin用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#margin与可视尺寸："><span class="toc-number">2.1.</span> <span class="toc-text">margin与可视尺寸：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#margin与占据尺寸："><span class="toc-number">2.2.</span> <span class="toc-text">margin与占据尺寸：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#z-index"><span class="toc-number">3.</span> <span class="toc-text">z-index</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结："><span class="toc-number">4.</span> <span class="toc-text">总结：</span></a></li></ol>
+		</div>
+		
+		<p>　　2016转眼已经接近尾声了。回想半年来走过的前端路。还是收获满满的。我自我感觉却还像宇宙中的一颗星星，好奇的品味这个世界。这几天仔细把玩了银河系里面的太阳—–张鑫旭大神的视频，感觉我学得东西也只是沧海一粟。还需要努力学习。总结分成两个部分，上半部分总结绝对定位absolute、margin用法、还有z-index用法。下半部分总结overflow属性、line-height、vertical-align属性。都是满满的干活。解决了很多疑惑，也看到了大神的内涵是如此深厚。最终有一天我也要成为夜空中最亮的星。</p>
+<h1 id="absolute绝对定位"><a href="#absolute绝对定位" class="headerlink" title="absolute绝对定位"></a>absolute绝对定位</h1><p>一、position：absolute其实和浮动有两个相同的特性：</p>
+<ol>
+<li>父元素设置绝对定位子元素被包裹；</li>
+<li>子元素设置绝对定位父元素高度塌陷；</li>
+</ol>
+<p>二、overflow:hidden不会对absolute有影响，这个可能是overflow失效的原因。解释在下一篇:）</p>
+<p>三、absolute位置跟随，原来display是什么，绝对定位之后不变。这个应该用的比较少</p>
+<p>四、无依赖绝对定位，用margin精确定位</p>
+<ol>
+<li>图片icon设计不依赖父元素relative</li>
+<li>定位下拉框的效果</li>
+<li>可以居中，父元素text-align：center子元素图片前面加一个空格或者文字，img绝对定位就可以实现居中的效果。</li>
+</ol>
+<p>五、top right bottom left 与height width（重点）<br>&nbsp; 1）可以相互代替，绝对定位方向是对立的时候，结果是身体的拉伸，并不是元素的位移。可以和width,height设置的效果相同。<br>&nbsp; 2）相互支持性<br>&nbsp;&nbsp;&nbsp;&nbsp;2-1）容器无需固定width height 内部元素可以拉伸，在给不定尺寸的图片给一个半透明的遮罩层就很管用<br>&nbsp;&nbsp;&nbsp;&nbsp;2-2）外部元素是拉伸的，内部元素可以百分比width height 效果。<br>通常情况下内部元素可以用width height百分比。 父元素 宽度不能是auto，绝对定位父元素宽度auto，拉升是可以百分比布局的。<br>&nbsp;&nbsp;&nbsp;&nbsp;2-3）同时也用margin强势的绝对居中。</p>
+<h1 id="margin用法"><a href="#margin用法" class="headerlink" title="margin用法"></a>margin用法</h1><p>一、  元素尺寸：</p>
+<ol>
+<li>可视尺寸：我理解就是有可以看到backgroundcolor和border的部分；</li>
+<li>占据尺寸：加上margin一个元素的尺寸；</li>
+</ol>
+<h2 id="margin与可视尺寸："><a href="#margin与可视尺寸：" class="headerlink" title="margin与可视尺寸："></a>margin与可视尺寸：</h2><p>只能改变没有设定宽高的display为block元素的水平的可视尺寸。注意这里不是占据尺寸；<br>margin为正；可视尺寸越小。margin为负可视尺寸越大。</p>
+<h2 id="margin与占据尺寸："><a href="#margin与占据尺寸：" class="headerlink" title="margin与占据尺寸："></a>margin与占据尺寸：</h2><p>可以改变inline-block、block的占据尺寸。水平方向垂直方向都可以。而且与有没有width、height无关</p>
+<p>二、margin百分比</p>
+<ol>
+<li>普通元素的百分比margin都是通过相对于父容器的宽度计算的。（就算是margin-top、margin-bottom也是父容器的宽度计算的）</li>
+<li>绝对定位元素的百分比margin是相对于第一个定位祖先元素（relative/absolute/fixed）的宽度计算的</li>
+</ol>
+<p>三、  margin重叠（重点）</p>
+<ol>
+<li>发生条件<br>a)  发生在block元素，而且无浮动，无定位情况。<br>b)  只是垂直方向上的重叠</li>
+<li>三种重叠类型<br>1）  父元素和子元素发生重叠<br>2）  子元素之间发生重叠<br>3）  空元素自己重叠</li>
+<li>核心理论：没有触发BFC。block formatting context，相当于一个封闭的空间。对外面的世界是不会有影响的。</li>
+</ol>
+<p>四、  margin：auto 的用法（重点）<br>前提知识：<br>1.块级元素没有设置宽高情况下，默认是水平方向填充满父容器的。<br>2.absolute元素的拉伸特性（之前也有讲过）</p>
+<p>margin：auto的精髓：<br><strong>就是填充那些元素变型尺寸之后剩余的空间。举一个最简单的例子。margin: 0 auto;就是一个块级元素水平居中的例子。一个块级元素默认是占据一整行的。设置了宽高之后，剩余的尺寸就是margin:auto可以填充的尺寸。</strong></p>
+<p>这就引申一个问题：margin : auto  auto；为何不能垂直居中？ 很简单，因为垂直方向上块级元素默认是没有占据空间的。需要父容器设置writing-mode :vertical-lr;才能使他垂直居中</p>
+<p>五、  margin无效常见的例子</p>
+<ol>
+<li>内联水平元素inline垂直margin无效的</li>
+<li>margin重叠</li>
+<li>display：table-cell、display:table-row</li>
+<li>绝对定位元素的非定位方向margin值无效。也就是position定位之后没有设置top 、left 的值 margin-top和margin-left无效。</li>
+</ol>
+<h1 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h1><p>一、  基本特性</p>
+<ol>
+<li>支持负值</li>
+<li>支持CSS3animation动画</li>
+<li>css2.1配合定位元素使用，定位元素position才能使用z-index(在不使用CSS3特性时候)</li>
+</ol>
+<p>二、z-index与定位元素<br>祖先优先原则，祖先的z-index大就在上面，和自己z-index关系不大。</p>
+<p>三、css中层叠上下文和层叠水平（重点）<br>层叠上下文中每一个元素都有层叠的水平。决定了同一个层叠上下文中元素在Z轴上显示的顺序<br><img src="http://oj5rofqer.bkt.clouddn.com/1.png" alt="层叠图片"></p>
+<p>1层叠准则</p>
+<ol>
+<li>谁大谁上：当具有明显的层叠水平标示的时候，如识别的z-indx值，在同一个层叠上下文领域，层叠水平值大的那一个覆盖小的那一个。通俗讲就是官大的压死官小的。</li>
+<li>后来居上：当元素的层叠水平一致、层叠顺序相同的时候，在DOM流中处于后面的元素会覆盖前面的元素。</li>
+</ol>
+<p>2层叠上下文的特性</p>
+<ol>
+<li><p>层叠上下文可以嵌套，组成一个分层次的层叠上下文</p>
+</li>
+<li><p>层叠上下文中每一个元素都有层叠的水平。决定了同一个层叠上下文中元素在Z轴上显示的顺序</p>
+</li>
+<li><p>每个层叠上下文是自成体系的：当元素的内容被层叠后，整个元素的层叠顺序就是父级层叠的顺序。</p>
+</li>
+</ol>
+<p>3层叠上下文的创建</p>
+<ol>
+<li><p>根层叠上下文<br>指的是页面根元素，也就是滚动条的默认的始作俑者<html>元素。这就是为什么，绝对定位元素在left/top等值定位的时候，如果没有其他定位元素限制，会相对浏览器窗口定位的原因。</html></p>
+</li>
+<li><p>定位元素与传统层叠上下文<br>对于包含有position:relative/position:absolute的定位元素，以及FireFox/IE浏览器（不包括Chrome等webkit内核浏览器）（目前，也就是2016年初是这样）下含有position:fixed声明的定位元素，当其z-index值不是auto的时候，会创建层叠上下文。</p>
+</li>
+</ol>
+<p>四、z-index 与层叠样式</p>
+<ol>
+<li>定位元素默认z-index:auto 可以看成 z-index:0</li>
+<li>z-index不为auto时候会创建层叠上下文</li>
+<li>z-index层叠顺序比较止步于父级层叠上下文   </li>
+<li>不支持z-index的层叠上下文元素的层叠顺序均是z-index auto</li>
+</ol>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>absolute、margin、z-index。是很常用的属性。但是在我做网页的时候都是只能知其一，不知其二。也许还原出来了设计稿。但是并不知道每个属性深层次的东西。张大神真的让人豁然开朗。</p>
+<p>absolute的拉伸特性兼容性很好，而且可以实现很多好玩的东西。<br>margin的重叠特性，可以让我们的布局更加美观。但是注意margin改变的是占据尺寸还是可视尺寸。<br>z-index对页面的重构，以及对层叠水平的理解上升了一个台阶。</p>
+<p>参考：<br><a href="http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/?utm_source=tuicool&amp;utm_medium=referral</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/12/25/品张鑫旭大神视频总结-上/" data-title="品张鑫旭大神视频总结(上) | 这是一个有趣的地方" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/01/08/品张鑫旭大神视频总结-下/" title="品张鑫旭大神视频总结(下)">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  品张鑫旭大神视频总结(下)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/12/18/css大会总结/"  title="css大会总结">
+ <strong>NEXT:</strong><br/> 
+ <span>css大会总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#absolute绝对定位"><span class="toc-number">1.</span> <span class="toc-text">absolute绝对定位</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#margin用法"><span class="toc-number">2.</span> <span class="toc-text">margin用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#margin与可视尺寸："><span class="toc-number">2.1.</span> <span class="toc-text">margin与可视尺寸：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#margin与占据尺寸："><span class="toc-number">2.2.</span> <span class="toc-text">margin与占据尺寸：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#z-index"><span class="toc-number">3.</span> <span class="toc-text">z-index</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结："><span class="toc-number">4.</span> <span class="toc-text">总结：</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">5</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://yoursite.com" target="_blank" title="wangdi">wangdi</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,360 @@
+
+ <!DOCTYPE HTML>
+<html lang="chinese">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>nodejs+mongodb开发总结 | 这是一个有趣的地方</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="wangdi">
+    
+    <meta name="description" content="总结这个礼拜回到学习状态，把node.js开发指南里面的例子给解决掉了。当然这里面有很多很多很多的坑。毕竟已经是几年前的书了。有很多坑也是正常的情况，作为一个新人我要把这些坑给记录下来。今天我就把整个流程遇到的坑记录下来。当然，若干年以后，这个坑已经变成新的坑了。还可能会出现更多的坑。总之做完这个项">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="这是一个有趣的地方" title="这是一个有趣的地方"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="这是一个有趣的地方">这是一个有趣的地方</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">历史文章</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/11/nodejs-mongodb开发总结/" title="nodejs+mongodb开发总结" itemprop="url">nodejs+mongodb开发总结</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://plus.google.com/123?rel=author" title="wangdi" target="_blank" itemprop="author">wangdi</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-12-11T10:19:37.000Z" itemprop="datePublished">2016-12-11</time>
+    Updated:<time datetime="2016-12-11T12:21:59.528Z" itemprop="dateModified">2016-12-11</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">1.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概括"><span class="toc-number">2.</span> <span class="toc-text">概括</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一部分：基础工程的搭建"><span class="toc-number">3.</span> <span class="toc-text">第一部分：基础工程的搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二部分：主页设计"><span class="toc-number">4.</span> <span class="toc-text">第二部分：主页设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三部分：用户的登录和注册"><span class="toc-number">5.</span> <span class="toc-text">第三部分：用户的登录和注册</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四部分：视觉交互"><span class="toc-number">6.</span> <span class="toc-text">第四部分：视觉交互</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五部分：发表微博"><span class="toc-number">7.</span> <span class="toc-text">第五部分：发表微博</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后"><span class="toc-number">8.</span> <span class="toc-text">最后</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">9.</span> <span class="toc-text">参考</span></a></li></ol>
+		</div>
+		
+		<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个礼拜回到学习状态，把node.js开发指南里面的例子给解决掉了。当然这里面有很多很多很多的坑。毕竟已经是几年前的书了。有很多坑也是正常的情况，作为一个新人我要把这些坑给记录下来。今天我就把整个流程遇到的坑记录下来。当然，若干年以后，这个坑已经变成新的坑了。还可能会出现更多的坑。总之做完这个项目感觉自己对MVC框架有了更深刻的理解。</p>
+<h1 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h1><p>这个项目整体来说是很简单的，书上的知识点说的很详细。一遍看不懂的多看几遍就是了。重点理解：</p>
+<ul>
+<li>路由的作用。我把他理解为篮球场上的组织后卫，组织每一次的进攻。就好像组织程序运行的流程一样。也就是MVC的C控制器层。</li>
+<li>理解express框架，理解什么是中间件。很重要！！！！！！</li>
+<li>mongoDB基本操作。</li>
+<li>整个项目一共就用到四个东西：mongodb、boostrap和node的express框架以及ejs模板引擎。</li>
+</ul>
+<h1 id="第一部分：基础工程的搭建"><a href="#第一部分：基础工程的搭建" class="headerlink" title="第一部分：基础工程的搭建"></a>第一部分：基础工程的搭建</h1><p>这里可以跟着一开始流程走：安装node.js，自带了npm。然后安装我们的express框架。还在热身阶段呢，马上就遇到我们第一个坑：npm install。<strong> 我们要做的就是把npm，全部换成cnpm来安装我们需要的包 </strong>。cnpm是淘宝的镜像，不要问为什么，老司机叫你赶紧上车。然后书上面说：</p>
+<pre><code>express -t ejs microblog
+</code></pre><p>创建我们的项目但是第二个坑来了（我去，还让不让人玩了？）： express -t参数已经失效，最新的express版本的默认模板引擎是jade。<br>我们要这样：</p>
+<pre><code>express -e microblog
+</code></pre><p>然后安装我们可以打开package.json。一般所有的项目都有这个文件，对于我们新人来说看看里面的依赖然后直接 cnpm install就行了。把我们需要的依赖包都安装到了我们目录下面。最后我们npm  start 就可以运行了。打开本地的4000端口看看。到这里还算是挺安全的，没什么大坑，对照书看看有部分是变化的。</p>
+<h1 id="第二部分：主页设计"><a href="#第二部分：主页设计" class="headerlink" title="第二部分：主页设计"></a>第二部分：主页设计</h1><p>这里跟着书走没什么问题。先写好路由，，然后使用bootstrap布局不出意外是可以看到页面的。</p>
+<h1 id="第三部分：用户的登录和注册"><a href="#第三部分：用户的登录和注册" class="headerlink" title="第三部分：用户的登录和注册"></a>第三部分：用户的登录和注册</h1><p>这里使用了数据库，一开始我也是一脸懵逼，上网补习mongoDB用法，以及核心思想。墙裂建议大家看看这篇<a href="https://github.com/StevenSLXie/Tutorials-for-Web-Developers/blob/master/MongoDB%20%E6%9E%81%E7%AE%80%E5%AE%9E%E8%B7%B5%E5%85%A5%E9%97%A8.md" target="_blank" rel="external">文章</a><br>看完你就可以刚数据库了。</p>
+<p>一开始写的是两个简单页面。注册和登录的页面。也就是VIEW层在写东西。书上用的是ejs模板。我们也跟着用吧。</p>
+<p>我们在根目录写一个settings.js也就是和数据库对接的一个连接文件。跟着书上走创建一个module文件夹。这里写的都是模块的东西。然后学习了什么是会话。就是浏览器和数据库之间要搞事情要保持连接的过程。但是会话这个组件引用以及写法已经和书上大相庭径了。在网上找个这个：<a href="http://www.cnblogs.com/yumianhu/p/3709558.html" target="_blank" rel="external"> http://www.cnblogs.com/yumianhu/p/3709558.html</a><br>解决session的问题。<br>注意：书上是在app.js里面写路由的。但是node4.x版本现在已经把index当成一个中间件了。引入在app.js中。我们的路由都是写在route/index.js里面的.。<br>路由和我们用户的模型写好了，就可以打开数据库进行注册，然后登陆了。想想还有点小激动呢。这一部分有大哥带着做也没什么问题，注意自己的参数是否写正确。0费的大哥<a href="http://www.cnblogs.com/yumianhu/p/3707421.html" target="_blank" rel="external">传送门</a></p>
+<h1 id="第四部分：视觉交互"><a href="#第四部分：视觉交互" class="headerlink" title="第四部分：视觉交互"></a>第四部分：视觉交互</h1><p>dynamicHelpers已经不用了。需要改写：</p>
+<pre><code>app.dynamicHelpers({
+    user: function(req, res) {
+        return req.session.user;
+    },
+    error: function(req, res) {
+        var err = req.flash(&apos;error&apos;);
+        if (err.length)
+            return err;
+        else
+            return null;
+    },
+    success: function(req, res) {
+        var succ = req.flash(&apos;success&apos;);
+        if (succ.length)
+            return succ;
+        else
+            return null;
+    },
+});
+</code></pre><p>改写成</p>
+<pre><code>app.use(function(req, res, next){
+  console.log(&quot;app.usr local&quot;);
+  res.locals.user = req.session.user;
+  res.locals.post = req.session.post;
+  var error = req.flash(&apos;error&apos;);
+  res.locals.error = error.length ? error : null;
+  var success = req.flash(&apos;success&apos;);
+  res.locals.success = success.length ? success : null;
+  next();
+});
+</code></pre><p>最后的ejs模板复用的问题&lt;%-  partial()  %&gt; 使用&lt;%- include()  %&gt;代替。</p>
+<h1 id="第五部分：发表微博"><a href="#第五部分：发表微博" class="headerlink" title="第五部分：发表微博"></a>第五部分：发表微博</h1><p>这里后面也没有什么特别大的问题，编写路由和post模块。只要参数不引用错误就没事。和user模块类似。如果之前遇到的坑解决了。这里一般不会有问题。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>很多坑之前已经有人踩过了，一般报错的问题网上都会有的。特别是Cnode.js的中文社区。遇到问题是好事，更清楚理解整个程序的运行的过程。最后写一下我的总结：</p>
+<ol>
+<li>app里引用中间件的顺序一定要清楚，要不然不知道到底是哪里出了问题。</li>
+<li>hotnode 是挺好用的。但是注意node的启动文件在bin/www。而且对于ejs修改最好还是从新启动一下端口。有几次找不到问题就从新启动就好了。</li>
+<li>会话session的问题。我是使用info，代替了success。可以实现。</li>
+<li>cannot read property ‘forEach’ of undefined  一般有两个原因：浏览器版本低、对象不是数组。</li>
+<li>可以把端口映射出去就能愉快的玩耍了。。。。</li>
+</ol>
+<p>最近看了陈奕迅演的电影《贱精先生》里面有一句话分享一下：<br> <strong> <center>“前方是绝路，希望在转角！” </center> </strong><br>我要加油了！</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://blog.csdn.net/dai_jing/article/details/38087443" target="_blank" rel="external">http://blog.csdn.net/dai_jing/article/details/38087443
+</a></li>
+<li><a href="https://segmentfault.com/a/1190000002620309" target="_blank" rel="external">https://segmentfault.com/a/1190000002620309
+</a></li>
+<li><a href="http://www.cnblogs.com/yumianhu/p/3709558.html、" target="_blank" rel="external">http://www.cnblogs.com/yumianhu/p/3709558.html、
+</a></li>
+<li><a href="http://www.cnblogs.com/yumianhu/p/3707421.html" target="_blank" rel="external">http://www.cnblogs.com/yumianhu/p/3707421.html
+</a></li>
+<li><a href="http://www.cnblogs.com/yumianhu/p/3707421.html" target="_blank" rel="external">http://www.cnblogs.com/yumianhu/p/3707421.html
+</a></li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/12/11/nodejs-mongodb开发总结/" data-title="nodejs+mongodb开发总结 | 这是一个有趣的地方" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/12/18/css大会总结/" title="css大会总结">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  css大会总结</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/12/08/我就爱对象！/"  title="我就爱对象！">
+ <strong>NEXT:</strong><br/> 
+ <span>我就爱对象！
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">1.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概括"><span class="toc-number">2.</span> <span class="toc-text">概括</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一部分：基础工程的搭建"><span class="toc-number">3.</span> <span class="toc-text">第一部分：基础工程的搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二部分：主页设计"><span class="toc-number">4.</span> <span class="toc-text">第二部分：主页设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三部分：用户的登录和注册"><span class="toc-number">5.</span> <span class="toc-text">第三部分：用户的登录和注册</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四部分：视觉交互"><span class="toc-number">6.</span> <span class="toc-text">第四部分：视觉交互</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五部分：发表微博"><span class="toc-number">7.</span> <span class="toc-text">第五部分：发表微博</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后"><span class="toc-number">8.</span> <span class="toc-text">最后</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">9.</span> <span class="toc-text">参考</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">5</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://yoursite.com" target="_blank" title="wangdi">wangdi</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
