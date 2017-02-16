@@ -1,0 +1,325 @@
+
+ <!DOCTYPE HTML>
+<html lang="chinese">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>css3动画属性 | 前方是顶端</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="wangdi">
+    
+    <meta name="description" content="css3是一个好东西。让前端页面动起来也更加方便了。样式更加丰富了。但是还是有很多属性还不能使用。据我所知道前端的页面动画有几种：①今天说的CSS3。②就是canvas动画，这应该是最全面的动画设计了。配合WebGL.③就是JQ/JS类型的动画。那么对应着其实三种动画也就是对应了我们前端页面的三个部">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="前方是顶端" title="前方是顶端"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="前方是顶端">前方是顶端</a></h1>
+				<h2 class="blog-motto">I&#39;M studying</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">历史文章</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/01/15/css3动画属性/" title="css3动画属性" itemprop="url">css3动画属性</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://plus.google.com/123?rel=author" title="wangdi" target="_blank" itemprop="author">wangdi</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-01-15T05:06:00.000Z" itemprop="datePublished">2017-01-15</time>
+    Updated:<time datetime="2017-02-16T06:16:15.389Z" itemprop="dateModified">2017-02-16</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#变换transform"><span class="toc-number">1.</span> <span class="toc-text">变换transform</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过渡transition"><span class="toc-number">2.</span> <span class="toc-text">过渡transition</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动画animation"><span class="toc-number">3.</span> <span class="toc-text">动画animation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+		</div>
+		
+		<p>css3是一个好东西。让前端页面动起来也更加方便了。样式更加丰富了。但是还是有很多属性还不能使用。据我所知道前端的页面动画有几种：①今天说的CSS3。②就是canvas动画，这应该是最全面的动画设计了。配合WebGL.③就是JQ/JS类型的动画。那么对应着其实三种动画也就是对应了我们前端页面的三个部分：HTML\CSS\JS。对了好像还缺点什么？SVG动画？好像扯远了。回归今天我们说的是CSS3动画。</p>
+<h1 id="变换transform"><a href="#变换transform" class="headerlink" title="变换transform"></a>变换transform</h1><p>（注意：只是变换效果并没有过度,主要有五个属性值主要是五个：translate:对象的平移;rotate:旋转;scale:缩放;skew:扭曲;matrix:矩阵（大神一般都用这个）</p>
+<ul>
+<li>translate:(X,Y) X,Y轴</li>
+<li>rotate:首先要设置圆心，transform-orgin默认 center,center然后再写角度（15deg）</li>
+<li>scale(X,Y)同translate但是这里设置的是倍数关系的数字</li>
+<li>skew:设置的也是角度deg()，使用角度制</li>
+<li>martrix: 以一个含六值的(a,b,c,d,e,f)变换矩阵的形式指定一个2D变换，相当于直接应用一个[a,b,c,d,e,f]变换矩阵</li>
+</ul>
+<hr>
+<h1 id="过渡transition"><a href="#过渡transition" class="headerlink" title="过渡transition"></a>过渡transition</h1><p>主要也就几个属性:首先你想我要过度的哪个属性<strong> transition-property </strong>肯定要有的吧。是想滚过去，还是走过去，还是缩放过去可以由transform确定，当然还可以设置透明度哦！。那我们就需要时间和速度了吧。时间是 <strong> transition-duration </strong> : 速度换一种说法就是过度的方式： <strong>transition-timing-function </strong> 再加个五毛特效就Ok了， <strong>transition-delay </strong>。</p>
+<ul>
+<li>transition-property: 你要设置的属性 还可以是all</li>
+<li>transition-duration:数字啦</li>
+<li>transition-timming-function:这个有点6需要写出来 <ul>
+<li>linear：线性过渡。等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0) </li>
+<li>ease：平滑过渡。等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0) </li>
+<li>ease-in：由慢到快。等同于贝塞尔曲线(0.42, 0, 1.0, 1.0) </li>
+<li>ease-out：由快到慢。等同于贝塞尔曲线(0, 0, 0.58, 1.0) </li>
+<li>ease-in-out：由慢到快再到慢。等同于贝塞尔曲线(0.42, 0, 0.58, 1.0)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="动画animation"><a href="#动画animation" class="headerlink" title="动画animation"></a>动画animation</h1><p>这才是真正的动画。之前的transform 只是数学课上的简单的图形变换而已 今天我们带大家看看什么才是真正的动画。上面那两 哥老是搞基的，然后就产生了他们的亲儿子—animation。<br>我这里直接给出了所需的各种属性值。 首先当然还是你需要弄得动画的名字得有吧， <strong>animation-name  </strong>;当然名字不能乱起的 需要符合规范的对吧。大伙规定了用 <strong>@keyframes </strong>定义动画的名字。光有名字还不行啊；看不到动画内容大伙也会懵*对吧。动画内容也是在 <strong>@keyframes </strong>里面定义 ,可以使用form to 表示动画。也可以用百分比表示。好奇的小伙伴就问了，那动画的内容是什么？当然还是需要用到我们数学课上学的东西啦transform(变换)定义每个时刻的样子，那我们可以开车了吧？ 首先还是我们开车的时间  <strong>animation-duration </strong> 和速度  <strong>animation-timming-function  </strong>; 当然还少不了五毛特效 <strong>animation-delay </strong>。当然我们这是动画对吧。不能一下就结束了。我们还可以设置循环的属性 <strong>animation-iteration-count </strong>。当然啦我们也不能一路向西吧  <strong>aimate-direation </strong>告诉你你要往哪边走。当然我们开车不可能一直开吧。很累的你懂你的。所以需要休息这里就是animation-play-state，设定运动的状态。最后开到目的地乐。准备在哪停车是关键：animation-fill-mode,简单说是把车停哪，是开回家还是丢在路边，你自己决定吧，好了animation就到这。</p>
+<ul>
+<li>animation-duration: 同 transition-duration</li>
+<li>animation-timming-function: 同transition-timming-function</li>
+<li>animation-delay 同transition-delay</li>
+<li>animation-iteration-count: infinite：无限循环 &lt;’number’&gt;指定对象动画的具体循环次数</li>
+<li>animation-direaction: normal： 正常方向 reverse：反方向运行 </li>
+<li>alternate：动画先正常运行再反方向运行，并持续交替运行 </li>
+<li>alternate-reverse：动画先反运行再正方向运行，并持续交替运行</li>
+<li>animation-play-state running： 运动 paused：暂停</li>
+<li>animation-fill-mode： <ul>
+<li>none：默认值。不设置对象动画之外的状态 </li>
+<li>forwards：设置对象状态为动画结束时的状态 </li>
+<li>backwards：设置对象状态为动画开始时的状态 </li>
+<li>both设置对象状态为动画结束或开始的状态</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>三个属性在css动画里是非常常用的。一定要牢记哦。是时候寄出绝招了：还有个库叫animation 用来做动画的。最后是两个实例：<br>1.transform和transition配合使用：<a href="https://e110110eee.github.io/BlogCase/1-15demo2.html" target="_blank" rel="external">实例1</a><br>2.动画animation使用。<a href="https://e110110eee.github.io/BlogCase/1-15demo.html" target="_blank" rel="external">实例2</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2017/01/15/css3动画属性/" data-title="css3动画属性 | 前方是顶端" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/01/08/品张鑫旭大神视频总结-下/"  title="品张鑫旭大神视频总结(下)">
+ <strong>NEXT:</strong><br/> 
+ <span>品张鑫旭大神视频总结(下)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#变换transform"><span class="toc-number">1.</span> <span class="toc-text">变换transform</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过渡transition"><span class="toc-number">2.</span> <span class="toc-text">过渡transition</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动画animation"><span class="toc-number">3.</span> <span class="toc-text">动画animation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">Archives</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">5</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://yoursite.com" target="_blank" title="wangdi">wangdi</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
