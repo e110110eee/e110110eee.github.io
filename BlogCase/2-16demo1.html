@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div style="position: absolute; background: red; width: 200px ;height: 200px;" class="draggable"></div>
+	<script>
+		window.onload = function(){
+	var EventUtil = {
+	addHandler:function (element,type,handler){
+		if(element.addEventListener){
+			element.addEventListener(type,handler,false);//统一冒泡处理
+		}
+		else if(element.attachEvent){
+			element.attachEvent('on'+type,handler);
+		}else{
+			element['on'+type] = handler;
+		}
+
+	},
+	getEvent:function(event){
+		return event ? event :window.event;  //DOM0级的IE的event对象是在window对象的属性
+	},
+	getTarget:function(event){
+		var target = event.target;
+		return target ? target : event.srcElement;
+	}
+	,/*阻止默认事件*/
+	preventDeault:function(event){
+		if(event.preventDeault){
+			event.preventDeault();
+		}else{
+			event.returnValue = false;
+		}
+	},
+	/*阻止事件冒泡*/
+	stopPropagration:function(event){
+		if(event.stopPropagration){
+			event.stopPropagration();
+		}else{
+			event.cancelBubble() = true;
+		}
+	}
+	,
+	removeHandler:function(element,type,handler){
+		if(element.removeEventListener){
+			element.removeEventListener(type,handler,false);
+		}
+		else if(element.detachEvent){
+			element.detachEvent(type,handler);
+		}else{
+			element['on'+type]=null;
+		}
+		
+	},
+	/*鼠标事件*/
+	/*获取客户区鼠标位置ClientX ClientY*/
+	getClientPosition:function(event){
+		var event = event ? event:window.event;
+		var clientPosition ={};
+		clientPosition.clientX = event.clientX;
+		clientPosition.clientY = event.clientY;
+		console.log( clientPosition);	
+
+	},
+	getPagePosition:function(event){
+		var event = event ? event:window.event;
+		var pagePosition ={};
+		pagePosition.clientX = event.pageX;
+		pagePosition.clientY = event.pageY;
+		console.log( pagePosition);	
+	},
+	getMouseButton:function (event){
+
+		if(document.implementation.hasFeature('MouseEvents','2.0')){
+			console.log(event)
+
+		}else{//IE
+			switch (event.button){
+				case 0 : 
+				case 1 : 
+				case 3 : 
+				case 5 : 
+				case 7 :
+					return 0;
+				case 2 :
+				case 6 :
+					return 2;
+				case 4 :
+					return 1; 
+			}
+		}
+	}
+	
+
+
+}
+			var DragDrop = function(){
+				var dragging =null;
+				function handleEvent(event){
+					var event = event||window.event;
+
+					var target = event.target||event.srcElement;
+					//确定event的类型
+					switch(event.type){
+						case "mousedown":
+							if(target.className.indexOf("draggable")>-1){
+								dragging = target;
+							}
+							break;
+
+						case "mousemove":
+							if(dragging !==null){
+								dragging.style.left = event.clientX+"px";
+								dragging.style.top = event.clientY+"px";
+							}
+							break;
+						case "mouseup":
+							dragging =null;
+							break;
+					}	
+				};
+				return{
+					enable:function (){
+						EventUtil.addHandler(document,"mousedown",handleEvent);
+						EventUtil.addHandler(document,"mousemove",handleEvent);
+						EventUtil.addHandler(document,"mouseup",handleEvent);
+					},
+					disable:function(){
+						EventUtil.removeHandler(document,"mousedown",handleEvent);
+						EventUtil.removeHandler(document,"mousemove",handleEvent);
+						EventUtil.removeHandler(document,"mouseup",handleEvent);
+					}
+				}
+
+			}
+			 DragDrop().enable();
+		
+		}
+	</script>
+</body>
+</html>
