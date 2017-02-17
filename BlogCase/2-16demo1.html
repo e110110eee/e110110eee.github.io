@@ -6,6 +6,51 @@
 </head>
 <body>
 	<div style="position: absolute; background: red; width: 200px ;height: 200px;" class="draggable"></div>
+	<p>使用鼠标事件实现比较麻烦一点</p>
+	<pre>
+	var DragDrop = function(){
+		var dragging =null;
+		function handleEvent(event){
+			var event = event||window.event;
+
+			var target = event.target||event.srcElement;
+			//确定event的类型
+			switch(event.type){
+				case "mousedown":
+					if(target.className.indexOf("draggable")>-1){
+						dragging = target;
+					}
+					break;
+
+				case "mousemove":
+					if(dragging !==null){
+						dragging.style.left = event.clientX+"px";
+						dragging.style.top = event.clientY+"px";
+					}
+					break;
+				case "mouseup":
+					dragging =null;
+					break;
+			}	
+		};
+		return{
+			enable:function (){
+				EventUtil.addHandler(document,"mousedown",handleEvent);
+				EventUtil.addHandler(document,"mousemove",handleEvent);
+				EventUtil.addHandler(document,"mouseup",handleEvent);
+			},
+			disable:function(){
+				EventUtil.removeHandler(document,"mousedown",handleEvent);
+				EventUtil.removeHandler(document,"mousemove",handleEvent);
+				EventUtil.removeHandler(document,"mouseup",handleEvent);
+			}
+		}
+
+	}
+	 DragDrop().enable();
+
+}
+	</pre>
 	<script>
 		window.onload = function(){
 	var EventUtil = {
