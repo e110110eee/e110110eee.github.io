@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-02-22T03:09:11.000Z" itemprop="datePublished">2017-02-22</time>
-    更新日期:<time datetime="2017-02-22T03:46:39.391Z" itemprop="dateModified">2017-02-22</time>
+    更新日期:<time datetime="2017-02-22T13:19:40.850Z" itemprop="dateModified">2017-02-22</time>
     
   </p>
 </header>
@@ -136,8 +136,8 @@ data: [{
 }]};
 </code></pre><p>3.使用正则变魔术<br>正则思路就是传入json数据 ，对string进行正则匹配两次，第一次拿到$value$,第二次替换成json数据   </p>
 <pre><code>String.prototype.magic = function(object){
-    return this.replace(&apos;/\$\w+\$/gi&apos;,function(matchs){
-        var returns object[matchs.replace(&apos;/\$/g&apos;,&quot;&quot;)];
+    return this.replace(/\$\w+\$/gi,function(matchs){
+        var returns= object[matchs.replace(/\$/g,&quot;&quot;)];
         return (returns+&quot;&quot;)==&quot;undefined&quot;?&quot;&quot;:returns;
     })
 }
