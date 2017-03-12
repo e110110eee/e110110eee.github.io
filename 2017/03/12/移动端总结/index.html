@@ -1,0 +1,337 @@
+
+ <!DOCTYPE HTML>
+<html lang="chinese">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>手机拍照总结 | 前方是顶端</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="wangdi">
+    
+    <meta name="description" content="这周工作相对还是很轻松的。主要还是适应新的项目，对于项目整体已经比较了解了。主要做的主要是人脸识别的前端实现的模块。还有就是对项目前端页面的优化。
+前端页面使用了一个叫amazeUI的框架，这个框架是我大中国人发明的。很大程度上借鉴了bootstrap，分离了一部分出来。可能这个更加轻便。更加实用。">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="前方是顶端" title="前方是顶端"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="前方是顶端">前方是顶端</a></h1>
+				<h2 class="blog-motto">I&#39;M studying</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">历史文章</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/12/移动端总结/" title="手机拍照总结" itemprop="url">手机拍照总结</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://plus.google.com/123?rel=author" title="wangdi" target="_blank" itemprop="author">wangdi</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-03-12T06:54:05.000Z" itemprop="datePublished">2017-03-12</time>
+    更新日期:<time datetime="2017-03-12T08:21:19.278Z" itemprop="dateModified">2017-03-12</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#百度地图"><span class="toc-number">1.</span> <span class="toc-text">百度地图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#人脸识别"><span class="toc-number">2.</span> <span class="toc-text">人脸识别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#layer-js"><span class="toc-number">3.</span> <span class="toc-text">layer.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EXif-js"><span class="toc-number">4.</span> <span class="toc-text">EXif.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+		</div>
+		
+		<p>这周工作相对还是很轻松的。主要还是适应新的项目，对于项目整体已经比较了解了。主要做的主要是人脸识别的前端实现的模块。还有就是对项目前端页面的优化。</p>
+<p>前端页面使用了一个叫amazeUI的框架，这个框架是我大中国人发明的。很大程度上借鉴了bootstrap，分离了一部分出来。可能这个更加轻便。更加实用。</p>
+<h1 id="百度地图"><a href="#百度地图" class="headerlink" title="百度地图"></a>百度地图</h1><p>前端页面加入了一个在百度地图上显示marker的功能。在还没开始做之前以为很难。其实也不过如此。把这一部分组合成了一个组件。之后就可以直接拿来用了。 简单说一下主要的思路吧。</p>
+<p>先创建一个百度地图的实例</p>
+<pre><code>map = new BMap.Map(&quot;map&quot;);  
+</code></pre><p> //第1步：设置地图中心点，</p>
+<pre><code>var point = new BMap.Point(lng, lat);  
+</code></pre><p> //第2步：初始化地图,设置中心点坐标和地图级别。  </p>
+<pre><code>map.centerAndZoom(point, 20);  
+</code></pre><p> //设置需要的组件<br>//第3步：启用滚轮放大缩小  </p>
+<pre><code>map.enableScrollWheelZoom(true);  
+</code></pre><p>//第4步：向地图中添加缩放控件  </p>
+<pre><code>var ctrlNav = new window.BMap.NavigationControl({  
+    anchor: BMAP_ANCHOR_TOP_LEFT,  
+    type: BMAP_NAVIGATION_CONTROL_LARGE  
+});  
+map.addControl(ctrlNav);  
+</code></pre><p>//第5步：向地图中添加缩略图控件  </p>
+<pre><code>var ctrlOve = new window.BMap.OverviewMapControl({  
+    anchor: BMAP_ANCHOR_BOTTOM_RIGHT,  
+    isOpen: 1  
+});  
+map.addControl(ctrlOve);  
+</code></pre><p> //第6步：向地图中添加比例尺控件  </p>
+<pre><code>var ctrlSca = new window.BMap.ScaleControl({  
+    anchor: BMAP_ANCHOR_BOTTOM_LEFT  
+});  
+map.addControl(ctrlSca);
+</code></pre><p> //开始绘制点markerArr是放置点的数组  ，绘制使用new BMap.Marker(point, { icon: myIcon })</p>
+<pre><code>for (var i = 0; i &lt; markerArr.length; i++) {  
+    var p0 = markerArr[i].point.split(&quot;,&quot;)[0];  
+    var p1 = markerArr[i].point.split(&quot;,&quot;)[1];  
+    var maker = addMarker(new BMap.Point(p0, p1), i);  
+}  
+//addMarker
+// 添加标注  
+function addMarker(point, index) {  
+    var myIcon = new BMap.Icon(&quot;http://api.map.baidu.com/img/markers.png&quot;,  
+        new BMap.Size(23, 25), {  
+            offset: new BMap.Size(10, 25),  
+            imageOffset: new BMap.Size(0, 0 - index * 25)  
+        });  
+   var marker = new BMap.Marker(point, { icon: myIcon }); 
+    map.addOverlay(marker);  
+    return marker;  
+} 
+</code></pre><p>最后我再说一点，创建百度地图的实例的时候，最好是马上初始化。绘制需要的地图，要不然会出现地图绘制不完整的问题。如果图片的中心使用GPS定位的话。地图绘制也会因为这个问题出现一些偏差。</p>
+<h1 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h1><p>言归正传，说点有趣的东西吧，这周主要做的就是人脸识别。分成两个部分，一个是身份证的上传。另一个是人脸比对。先从上传身份证开始说起吧。使用的是face++来识别身份证。但是这有一个问题，检测的时候需要让图片都是竖直的才行。当然一开始的思想就是判断手机拍摄的图片的宽高来判断是否需要让图片旋转。图片旋转我们可以使用CSS3的transform：rotate（deg）来实现。判断宽高比也是比较容易的。直接拿到拍摄照片的宽高就好了。<br>在安卓的手机上测试拍照的时候还是很好的。众所周知苹果手机就喜欢搞事情的。问题就出在：<strong> 苹果手机拍摄的图片不管是横屏拍摄还是竖屏拍摄都是高比宽要大。 </strong>。而且苹果手机在图片绘制时候有一些问题。我们就采取办法：指引用户都使用横屏拍摄。<br>然后就使用到了一个JQ模板框的插件。感觉挺酷炫的。叫layer.js</p>
+<h1 id="layer-js"><a href="#layer-js" class="headerlink" title="layer.js"></a>layer.js</h1><p>这个模板框感觉很酷，比较方便的制作一些提示框，警告框什么的。自己也做了几个以备不时之需<a href="http://www.layui.com/doc/modules/layer.html" target="_blank" rel="external">传送门</a><br>初始化如下：</p>
+<pre><code>layer.open({
+  title: &apos;hello layer&apos;
+  ,content: &apos;可以填写任意的layer代码&apos;
+});    
+</code></pre><h1 id="EXif-js"><a href="#EXif-js" class="headerlink" title="EXif.js"></a>EXif.js</h1><p>原本以为这样指引就可以解决了的。但是苹果又淘气了。苹果手机有时候在横屏拍照的时候有时候并不会自己旋转过来。如果把手机垂直地面横屏拍摄。这样就能感应到自动旋转。也许是苹果手机特有的设计。认为你会拍一些横屏的东西。<strong> 等我有钱第一件事就是买苹果手机 </strong>。 这样就还会有些问题。觉得没有什么方法的时候。发现之前大神写的代码里面有一个叫EXIF.js的东西。赶紧google了一下。发现这个插件也有点6。只能够拿到苹果手机的拍摄的方向。其他手机任意拍摄方向返回的都是1或者是“undefined”。这样就能判断苹果手机的图片拍摄方向了。<br>除了得到拍摄方向，里面还有一个参数比较感兴趣的是拍摄照片的时间。这个在业务场景也是很有用的。可以判断图片是否是刚拍的，然后判断图片的真伪度。感觉这个插件比较6，还能压缩图片，获取图片其他很多信息。还在研究这个插件的源码。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这一周感觉收获还是很多的。认识很多同事，在解决问题的时候又有了新的看法。当找到解决办法的时候，应该先想清楚是否还有其他的办法去解决问题。而不是马上去实现。因为一开始想到的不一定是最好的。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2017/03/12/移动端总结/" data-title="手机拍照总结 | 前方是顶端" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/02/22/HTML模板快速连接json/"  title="HTML模板快速连接json">
+ <strong>NEXT:</strong><br/> 
+ <span>HTML模板快速连接json
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#百度地图"><span class="toc-number">1.</span> <span class="toc-text">百度地图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#人脸识别"><span class="toc-number">2.</span> <span class="toc-text">人脸识别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#layer-js"><span class="toc-number">3.</span> <span class="toc-text">layer.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EXif-js"><span class="toc-number">4.</span> <span class="toc-text">EXif.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">5</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://yoursite.com" target="_blank" title="wangdi">wangdi</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
